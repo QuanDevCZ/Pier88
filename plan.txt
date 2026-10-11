@@ -1,0 +1,76 @@
+PIER88 COAST - HOMEPAGE STUDY REBUILD
+=====================================
+
+Goal
+----
+Recreate the homepage of https://pier88coast.com/ as a local study piece: same layout,
+section order, type scale, colours, scroll choreography (GSAP + Lenis) and pacing.
+
+Boundaries (agreed scope)
+-------------------------
+- All HTML/CSS/JS is written from scratch. The original site's source code is NOT copied.
+- The restaurant's photos, videos and paid fonts (Tan Mon Cheri, Golden Hopes, Stevie Sans)
+  are NOT downloaded or reused. Substitutes:
+    Tan Mon Cheri  -> Italiana (Google Fonts, thin high-contrast caps)
+    Golden Hopes   -> Allison (Google Fonts, thin script)
+    Stevie Sans    -> Jost (Google Fonts, geometric sans)
+  Photos: free Unsplash-licence photos, hotlinked (non-Plus only).
+  Illustrative pieces (plates, sea waves, sketch icons) are drawn in CSS/SVG.
+- Copy is rewritten in the same spirit, not lifted verbatim.
+- Local only. Never deploy publicly - it imitates a real business's site.
+
+Stack
+-----
+Zero build. index.html + styles.css + main.js. GSAP 3.12.5 + ScrollTrigger and Lenis 1.3.x
+from cdnjs/jsdelivr. Serve with `npx serve .`.
+
+Sections (desktop reference 1536x695, screenshots in reference/)
+---------------------------------------------------------------
+00 Header      - transparent; FIND US / MENU left, PIER88 Coast logo centre, burger right.
+                 Hides on scroll down, glass background on scroll up.
+01 Hero        - sea photo full-bleed, curved "COASTAL SUMMER DINING" text on an arc,
+                 shrimp-on-fork over a gold-rim plate, white wave shape at bottom.
+                 Intro: arc letters rise in, plate slides up; scroll parallax.
+02 Editorial   - white; small kicker "PIER88 IN ...", big plate centre, polaroid photos,
+                 sketch icons, intro paragraph bottom-left.
+03 Plate journey - pinned (~5x viewport). Plate centre shows 5 chapters
+                 (Breakfast / Lunch / Sunset / Night / Beyond), title + script subtitle +
+                 copy + 0X / 05 progress bar. Polaroids and sketch icons drift around.
+04 Atmosphere  - full-bleed sea video/photo, "COME FOR THE COAST" blurred-in heading
+                 + script line, waves edge transitioning into section 05.
+05 Days by the Sea - left title block, horizontal card rail (image + title) moved by scroll.
+06 Aperitivo   - cream bg (#f6f1e8), giant blurred "APERITIVO" behind a cocktail photo,
+                 monstera leaves parallax at edges, small copy right.
+07 Gathering   - "MADE FOR GATHERING" + script, horizontal strip of 4+ tall food cards
+                 with tiny caption, drifting with scroll.
+08 Day / Night - pinned, two images with a vertical wipe; headline swaps
+                 "DAY LINGERS" -> "NIGHT UNFOLDS" with script line.
+09 August by the Sea - event list centre (active item highlighted), polaroid right,
+                 title + copy left; list item changes with scroll.
+10 Waves CTA   - pinned water/foam photo, "YOUR TABLE AWAITS BY THE WAVES" + button.
+11 Footer      - teal (#0b5a6b-ish) with big faint 88 mark, title + script line,
+                 4 columns (Our Story / Gallery / Events / The Group), bottom bar, socials.
+
+Colours: navy ink #0f0a67, green script #6aa16a-ish, cream #f6f1e8, dark #05080c,
+         footer teal, body text slate.
+
+Steps
+-----
+1. Analyse live site in Chrome, screenshot each section            [done]
+2. Pick Unsplash photos per slot, verify URLs return 200          [done - 26/26, credits in assets/credits.json]
+3. Build index.html / styles.css / main.js section by section      [done]
+4. Serve locally, screenshot each section at 1536 wide, compare   [done - fixed hero crop/plate, journey
+                                                                   plate centring, days rail overlap,
+                                                                   day/night crossfade, CTA contrast]
+5. Check mobile width (no horizontal scroll), reduced-motion      [done at 390px via iframe; fixed aperitivo
+                                                                   leaves + word overflow. Reduced-motion
+                                                                   path written but not manually tested]
+6. Report what matches and what differs                           [done]
+
+Known differences vs original
+-----------------------------
+- Fonts are free look-alikes, so letter shapes differ (esp. the script).
+- Photos are different subjects; hero shrimp-on-fork cut-out is a round photo on a CSS plate.
+- No background videos (original uses video in atmosphere / waves); stills with scroll motion instead.
+- Lottie animations on the original are not reproduced.
+- Burger menu and popup are visual only.
